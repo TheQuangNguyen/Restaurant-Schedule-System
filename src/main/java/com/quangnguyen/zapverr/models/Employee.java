@@ -1,5 +1,8 @@
 package com.quangnguyen.zapverr.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,15 +10,20 @@ import javax.persistence.*;
 import java.util.Collection;
 
 // models employees' profile
+@AllArgsConstructor
 @Entity
 public class Employee implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+    @NonNull
     String firstName;
     String lastName;
+    @NonNull
     String username;
+    @NonNull
+    @JsonIgnore
     String password;
 
     @ManyToOne

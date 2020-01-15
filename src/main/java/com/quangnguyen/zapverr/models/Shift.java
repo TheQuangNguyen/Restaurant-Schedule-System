@@ -1,10 +1,15 @@
 package com.quangnguyen.zapverr.models;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 // models each shift of a particular day
+@NoArgsConstructor
+@Data
 @Entity
 public class Shift {
     @Id
