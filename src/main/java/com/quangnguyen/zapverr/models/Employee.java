@@ -2,6 +2,7 @@ package com.quangnguyen.zapverr.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 // models employees' profile
-@AllArgsConstructor
+@Data
 @Entity
 public class Employee implements UserDetails {
 
@@ -29,47 +30,13 @@ public class Employee implements UserDetails {
     @ManyToOne
     Position jobPosition;
 
-
-
-    ////////// Getters
-    public long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Position getJobPosition() {
-        return jobPosition;
-    }
-    //////////
-
-    ////////// Setters
-    public void setFirstName(String firstName) {
+    public Employee(String firstName, String lastName, String username, String password, Position jobPosition) {
         this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setJobPosition(Position jobPosition) {
         this.jobPosition = jobPosition;
     }
-    //////////
 
     ////////// User Details Implementation
     @Override

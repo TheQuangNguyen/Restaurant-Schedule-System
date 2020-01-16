@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -18,6 +19,12 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    // Get all current employees
+    @GetMapping("/employee")
+    public Collection<Employee> getEmployees() {
+        return employeeRepository.findAll();
+    }
 
     // Get the current logged in employee information
     @GetMapping("/employee/{id}")
@@ -33,12 +40,14 @@ public class EmployeeController {
         return ResponseEntity.created(new URI("/api/employee" + savedEmployee.getId())).body(savedEmployee);
     }
 
+    // update an employee information
     @PutMapping("/employee/{id}")
     public ResponseEntity<Employee> updateEmployee(@Valid @RequestBody Employee employee) {
         Employee result = employeeRepository.save(employee);
         return ResponseEntity.ok().body(result);
     }
 
+    // delete an employee account
     @DeleteMapping("/employee/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable long id) {
         employeeRepository.deleteById(id);

@@ -1,23 +1,32 @@
 package com.quangnguyen.zapverr.models;
 
-import lombok.AllArgsConstructor;
+import com.quangnguyen.zapverr.models.enums.JobTitle;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 // Models each job position that the restaurant has
-@AllArgsConstructor
 @Data
 @Entity
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    String jobTitle;
+    JobTitle jobTitle;
     double hourlyWage;
 
     @OneToMany(mappedBy = "jobPosition")
-    List<Employee> employees;
+    Set<Employee> employees;
 
+    public Position(JobTitle jobTitle, double hourlyWage) {
+        this.jobTitle = jobTitle;
+        this.hourlyWage = hourlyWage;
+        this.employees = new HashSet<>();
+    }
+
+    public boolean addEmployee(Employee employee) {
+        return this.employees.add(employee);
+    }
 }
