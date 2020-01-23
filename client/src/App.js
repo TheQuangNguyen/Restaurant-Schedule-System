@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./components/layout/Landing";
+import "./reset.css";
 import "./App.css";
 
 // Redux
@@ -11,7 +13,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <Route exact path="/"></Route>
+          <Route exact path="/" component={Landing} />
         </Fragment>
       </Router>
     </Provider>

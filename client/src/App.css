@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/************************** Landing Page ********************************/
+.landing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing-info {
+  width: 50vw;
+}
+
+.landing-background {
+  position: relative;
+  height: auto;
+  width: 50vw;
+}
+
+.landing-background-img {
+  object-fit: contain;
+}
