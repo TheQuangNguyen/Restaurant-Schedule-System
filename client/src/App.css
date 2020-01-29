@@ -44,15 +44,26 @@
 }
 
 .landing-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50vw;
 }
 
 .landing-background {
   position: relative;
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   width: 50vw;
+  background: #65ad04;
 }
 
 .landing-background-img {
-  object-fit: contain;
+  width: 50%;
+}
+
+.loginForm {
+  width: 70%;
 }
