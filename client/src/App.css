@@ -48,6 +48,27 @@
   justify-content: center;
   align-items: center;
   width: 50vw;
+  font-family: "Quicksand";
+}
+
+.home {
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26),
+    0 4px 12px 0 rgba(121, 155, 254, 0.25);
+  font-size: 1.2em;
+}
+
+.btn {
+  background: #65ad04;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background: #65ad04;
+  color: white;
+}
+
+.form-control {
+  border: 1px solid #65ad04;
 }
 
 .landing-background {
@@ -62,8 +83,4 @@
 
 .landing-background-img {
   width: 50%;
-}
-
-.loginForm {
-  width: 70%;
 }
