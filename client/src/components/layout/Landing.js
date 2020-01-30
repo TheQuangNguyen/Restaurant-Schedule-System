@@ -2,6 +2,13 @@ import React from "react";
 import landingBackground from "../../img/restaurant_background.jpg";
 
 const Landing = () => {
+  const onLoginSubmit = async e => {
+    e.preventDefault();
+  };
+
+  const onRegisterSubmit = async e => {
+    e.preventDefault();
+  };
   return (
     <section className="landing">
       <div className="landing-info">
@@ -10,7 +17,7 @@ const Landing = () => {
             <ul className="nav nav-tabs md-tabs tabs-2 darken-3" role="tablist">
               <li className="nav-item">
                 <a
-                  className="nav-link active text-dark"
+                  className="nav-link active"
                   data-toggle="tab"
                   href="#login"
                   role="tab"
@@ -21,7 +28,7 @@ const Landing = () => {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link text-dark"
+                  className="nav-link"
                   data-toggle="tab"
                   href="#register"
                   role="tab"
@@ -37,9 +44,11 @@ const Landing = () => {
                 id="login"
                 role="tabpanel"
               >
-                <h3 className="mt-3">Welcome Back</h3>
-                <p className="mt-3 mb-3">Log into your account</p>
-                <form action="/" method="POST" className="md-form form-sm">
+                <p className="mt-4 mb-4">Log into your account</p>
+                <form
+                  className="md-form form-sm"
+                  onSubmit={e => onLoginSubmit(e)}
+                >
                   <input
                     required
                     type="text"
@@ -62,14 +71,12 @@ const Landing = () => {
                 </form>
               </div>
               <div className="tab-pane fade" id="register" role="tabpanel">
-                <h3 className="mt-3">Sign Up Today</h3>
-                <p className="mt-3 mb-3">
+                <p className="mt-4 mb-4">
                   Please fill out this form to register
                 </p>
                 <form
-                  action="/signup"
-                  method="POST"
                   className="md-form form-sm"
+                  onSubmit={e => onRegisterSubmit(e)}
                 >
                   <div className="form-group">
                     <input
@@ -100,13 +107,24 @@ const Landing = () => {
                       placeholder="Password"
                       className="form-control form-control-lg my-2"
                     />
-                    <input
-                      required
-                      type="text"
-                      name="phoneNumber"
-                      placeholder="Mobile Number"
+                    <label for="jobPositionSelect" className="jobPositionLabel">
+                      Choose Your Job Position
+                    </label>
+                    <select
+                      name="jobPosition"
+                      id="jobPositionSelect"
                       className="form-control form-control-lg my-2"
-                    />
+                      required
+                    >
+                      <option value="">Please choose an option</option>
+                      <option value="server">Server</option>
+                      <option value="bartender">Bartender</option>
+                      <option value="packer">Packer</option>
+                      <option value="cook">Cook</option>
+                      <option value="dishwasher">Dishwasher</option>
+                      <option value="host">Host/Hostess</option>
+                      <option value="manager">Manager</option>
+                    </select>
                     <input
                       type="submit"
                       value="Register"

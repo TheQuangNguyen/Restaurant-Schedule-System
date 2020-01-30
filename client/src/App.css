@@ -56,10 +56,16 @@
   box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26),
     0 4px 12px 0 rgba(121, 155, 254, 0.25);
   font-size: 1.2em;
+  width: 50%;
 }
 
 .btn {
   background: #65ad04;
+}
+
+.btn:hover {
+  background: #8dd82b;
+  color: white;
 }
 
 .nav-tabs .nav-item .nav-link.active {
@@ -67,8 +73,16 @@
   color: white;
 }
 
+.nav-link {
+  color: black;
+}
+
 .form-control {
   border: 1px solid #65ad04;
+}
+
+.jobPositionLabel {
+  margin: 15px 0px 5px 0px;
 }
 
 .landing-background {
