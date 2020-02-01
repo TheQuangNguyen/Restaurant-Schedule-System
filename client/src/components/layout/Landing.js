@@ -107,6 +107,13 @@ const Landing = () => {
                       placeholder="Password"
                       className="form-control form-control-lg my-2"
                     />
+                    <input
+                      required
+                      name="password2"
+                      type="password"
+                      placeholder="Confirm Password"
+                      className="form-control form-control-lg my-2"
+                    />
                     <label for="jobPositionSelect" className="jobPositionLabel">
                       Choose Your Job Position
                     </label>
