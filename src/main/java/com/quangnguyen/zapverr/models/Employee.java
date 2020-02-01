@@ -1,6 +1,7 @@
 package com.quangnguyen.zapverr.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.quangnguyen.zapverr.models.enums.JobTitle;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
@@ -35,12 +36,12 @@ public class Employee implements UserDetails {
     @ManyToOne
     Position jobPosition;
 
-    public Employee(String firstName, String lastName, String username, String password, Position jobPosition) {
+    public Employee(String firstName, String lastName, String username, String password, String jobPosition) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.jobPosition = jobPosition;
+        this.jobPosition = new Position(JobTitle.valueOf(jobPosition));
     }
 
     ////////// User Details Implementation

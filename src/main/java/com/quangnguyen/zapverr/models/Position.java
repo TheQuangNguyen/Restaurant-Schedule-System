@@ -20,13 +20,18 @@ public class Position {
     @OneToMany(mappedBy = "jobPosition")
     Set<Employee> employees;
 
-    public Position(JobTitle jobTitle, double hourlyWage) {
+    public Position(JobTitle jobTitle) {
         this.jobTitle = jobTitle;
-        this.hourlyWage = hourlyWage;
         this.employees = new HashSet<>();
     }
 
     public boolean addEmployee(Employee employee) {
         return this.employees.add(employee);
+    }
+    public void setHourlyWage(int hourlyWage) {
+        if (hourlyWage < 0) {
+            throw new IllegalArgumentException("Hourly wages cannot be below 0");
+        }
+        this.hourlyWage = hourlyWage;
     }
 }

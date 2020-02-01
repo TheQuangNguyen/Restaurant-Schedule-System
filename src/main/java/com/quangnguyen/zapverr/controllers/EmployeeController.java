@@ -34,7 +34,7 @@ public class EmployeeController {
     }
 
     // Create new employee account
-    @PostMapping("/employee")
+    @PostMapping("/register")
     public ResponseEntity<Employee> createEmployee(@Valid @RequestBody Employee employee) throws URISyntaxException {
         Employee savedEmployee = employeeRepository.save(employee);
         return ResponseEntity.created(new URI("/api/employee" + savedEmployee.getId())).body(savedEmployee);

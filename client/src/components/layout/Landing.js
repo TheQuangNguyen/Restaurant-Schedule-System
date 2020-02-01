@@ -1,14 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { register } from "../../actions/auth";
+import { setAlert } from "../../actions/alert";
 import landingBackground from "../../img/restaurant_background.jpg";
 
 const Landing = () => {
+  const [registerData, setRegisterData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    password2: "",
+    jobPosition: ""
+  });
+
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    password2,
+    jobPosition
+  } = registerData;
+
+  const [loginData, setLoginData] = useState({
+    loginEmail: "",
+    loginPassword: ""
+  });
+
+  const { loginEmail, loginPassword } = loginData;
+
   const onLoginSubmit = async e => {
     e.preventDefault();
   };
 
+  const onLoginChange = e =>
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+
   const onRegisterSubmit = async e => {
     e.preventDefault();
+    if (password !== password2) {
+      setAlert("Passwords do not match", "danger");
+    } else {
+      register({ firstName, lastName, email, password, jobPosition });
+    }
   };
+
+  const onRegisterChange = e =>
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+  const onRegisterJobPositionChange = e =>
+    setRegisterData({
+      ...registerData,
+      [e.target.name]: e.options[e.selectedIndex].value
+    });
+
   return (
     <section className="landing">
       <div className="landing-info">
@@ -55,6 +99,7 @@ const Landing = () => {
                     name="username"
                     placeholder="Email"
                     className="form-control form-control-lg my-2"
+                    onChange={e => onLoginChange(e)}
                   />
                   <input
                     required
@@ -62,6 +107,7 @@ const Landing = () => {
                     type="password"
                     placeholder="Password"
                     className="form-control form-control-lg my-2"
+                    onChange={e => onLoginChange(e)}
                   />
                   <input
                     type="submit"
@@ -85,6 +131,7 @@ const Landing = () => {
                       name="firstName"
                       placeholder="First Name"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterChange(e)}
                     />
                     <input
                       required
@@ -92,6 +139,7 @@ const Landing = () => {
                       name="lastName"
                       placeholder="Last Name"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterChange(e)}
                     />
                     <input
                       required
@@ -99,6 +147,7 @@ const Landing = () => {
                       name="email"
                       placeholder="Email"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterChange(e)}
                     />
                     <input
                       required
@@ -106,6 +155,7 @@ const Landing = () => {
                       type="password"
                       placeholder="Password"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterChange(e)}
                     />
                     <input
                       required
@@ -113,6 +163,7 @@ const Landing = () => {
                       type="password"
                       placeholder="Confirm Password"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterChange(e)}
                     />
                     <label for="jobPositionSelect" className="jobPositionLabel">
                       Choose Your Job Position
@@ -121,16 +172,17 @@ const Landing = () => {
                       name="jobPosition"
                       id="jobPositionSelect"
                       className="form-control form-control-lg my-2"
+                      onChange={e => onRegisterJobPositionChange(e)}
                       required
                     >
                       <option value="">Please choose an option</option>
-                      <option value="server">Server</option>
-                      <option value="bartender">Bartender</option>
-                      <option value="packer">Packer</option>
-                      <option value="cook">Cook</option>
-                      <option value="dishwasher">Dishwasher</option>
-                      <option value="host">Host/Hostess</option>
-                      <option value="manager">Manager</option>
+                      <option value="SERVER">Server</option>
+                      <option value="BARTENDER">Bartender</option>
+                      <option value="PACKER">Packer</option>
+                      <option value="COOK">Cook</option>
+                      <option value="DISHWASHER">Dishwasher</option>
+                      <option value="HOST">Host/Hostess</option>
+                      <option value="MANAGER">Manager</option>
                     </select>
                     <input
                       type="submit"
