@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/************************** Landing Page ********************************/
+.landing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  font-family: "Quicksand";
+}
+
+.home {
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26),
+    0 4px 12px 0 rgba(121, 155, 254, 0.25);
+  font-size: 1.2em;
+  width: 50%;
+}
+
+.btn {
+  background: #65ad04;
+}
+
+.btn:hover {
+  background: #8dd82b;
+  color: white;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background: #65ad04;
+  color: white;
+}
+
+.nav-link {
+  color: black;
+}
+
+.form-control {
+  border: 1px solid #65ad04;
+}
+
+.jobPositionLabel {
+  margin: 15px 0px 5px 0px;
+}
+
+.landing-background {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50vw;
+  background: #65ad04;
+}
+
+.landing-background-img {
+  width: 50%;
+}
