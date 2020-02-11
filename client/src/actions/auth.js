@@ -12,7 +12,7 @@ export const register = ({
 }) => async dispatch => {
   const config = {
     headers: {
-      "Content-Type": "applicaton/json"
+      "Content-Type": "application/json"
     }
   };
 
@@ -25,7 +25,7 @@ export const register = ({
   });
 
   try {
-    const res = await axios.post("/api/employee", body, config);
+    const res = await axios.post("/api/register", body, config);
 
     dispatch({
       type: REGISTER_SUCCESS,
